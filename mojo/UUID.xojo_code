@@ -92,7 +92,7 @@ Protected Class UUID
 		    dim data as uuid_t = self.data
 		    dim m as new MemoryBlock(37)
 		    uuid_unparse(data, m)
-		    return DefineEncoding(m, Encodings.ASCII)
+		    return DefineEncoding(m.CString(0), Encodings.ASCII)
 		  #endif
 		  
 		  #if targetLinux
@@ -101,7 +101,7 @@ Protected Class UUID
 		    dim data as uuid_t = self.data
 		    dim m as new MemoryBlock(37)
 		    uuid_unparse(data, m)
-		    return DefineEncoding(m, Encodings.ASCII)
+		    return DefineEncoding(m.CString(0), Encodings.ASCII)
 		  #endif
 		  
 		  #if targetWin32
